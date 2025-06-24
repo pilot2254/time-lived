@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-black text-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Death Countdown</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Sans:wght@400;700&family=Geist+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: 'Geist Sans', sans-serif;
+      }
+      .mono {
+        font-family: 'Geist Mono', monospace;
+      }
+    </style>
+  </head>
+  <body class="h-full flex items-center justify-center">
+    <div class="text-center space-y-8 p-8">
+      <h1 class="text-4xl font-bold tracking-tight">You're dying. Fast.</h1>
+      <p class="text-lg mono">Friday, 28 February 2076</p>
+      <div id="countdown" class="text-3xl font-mono text-red-600"></div>
+      <p class="text-md max-w-xl mx-auto text-gray-400">
+        Every second you procrastinate is one second closer to your grave.
+        You wasted 5 years already. You think you deserve rest? You don’t.
+        Build. Create. Improve. Or rot like the rest.
+      </p>
+    </div>
+    <script>
+      const endTime = new Date("2076-02-28T00:00:00Z").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endTime - now;
+
+        if (distance < 0) {
+          document.getElementById("countdown").innerHTML = "You're already dead.";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = 
+          `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    </script>
+  </body>
+</html>
