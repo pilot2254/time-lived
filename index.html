@@ -1,55 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-black text-white">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wake up Mike</title>
-    <link href="https://fonts.googleapis.com/css2?family=Geist+Sans:wght@400;700&family=Geist+Mono&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body {
-        font-family: 'Geist Sans', sans-serif;
-      }
-      .mono {
-        font-family: 'Geist Mono', monospace;
-      }
-    </style>
-  </head>
-  <body class="h-full flex items-center justify-center">
-    <div class="text-center space-y-8 p-8">
-      <h1 class="text-5xl font-bold tracking-tight text-red-700">Mike, You're dying. Fast.</h1>
-      <p class="text-lg mono">You're scheduled to fucking die on: Friday, 28 February 2076</p>
-      <div id="countdown" class="text-4xl font-mono text-red-600"></div>
-      <p class="text-md max-w-xl mx-auto text-gray-400">
-        Every pathetic second you waste is one second closer to the worms eating your useless corpse.
-        You’ve pissed away half a goddamn decade doing nothing but existing. You aren't special. No one is coming.
-        Wake the fuck up. Build something. Be brutal. Or shut up and decay in silence.
-        No more fear. No more crying. Just do the fucking work. You can't take these seconds back.
-      </p>
-    </div>
-    <script>
-      const endTime = new Date("2076-02-28T00:00:00Z").getTime();
-
-      function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = endTime - now;
-
-        if (distance < 0) {
-          document.getElementById("countdown").innerHTML = "You are finally dead.";
-          return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("countdown").innerHTML = 
-          `${days}d ${hours}h ${minutes}m ${seconds}s`;
-      }
-
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    </script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>whoami</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="assets/global.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="container text-center">
+    <h1 class="text-3xl font-bold mb-4">whoami</h1>
+    <nav class="space-x-4 text-lg">
+      <a href="time/index.html" class="underline">Time Lived</a>
+      <a href="quotes/index.html" class="underline">Hourly Quotes</a>
+    </nav>
+  </div>
+</body>
 </html>
