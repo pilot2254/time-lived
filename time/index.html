@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Time Lived</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="../assets/global.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="../assets/global.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-  <div class="container text-center">
-    <h1 class="text-4xl font-bold mb-6">Time Since Birth</h1>
-    <p class="text-xl mb-8">Live in the current moment. You're still alive.</p>
-    <div class="text-2xl mono leading-relaxed" id="timeDisplay"></div>
-    <a href="../index.html" class="block mt-12 text-sm underline">← Back</a>
-  </div>
+  <main class="container">
+    <header>
+      <h1 class="text-4xl font-bold mb-4">Time Since Birth</h1>
+      <p class="text-lg mb-8">Live now. You're still alive.</p>
+    </header>
+    <section id="timeDisplay" class="text-2xl mono leading-loose whitespace-pre-line"></section>
+    <a href="../index.html">Go Back</a>
+  </main>
 
   <script>
     const birthDate = new Date('2009-08-10T06:37:00');
@@ -35,12 +37,12 @@
       const months = Math.floor((days % 365.25) / 30.44);
       const remainingDays = Math.floor((days % 365.25) % 30.44);
 
-      document.getElementById('timeDisplay').innerText =
+      document.getElementById('timeDisplay').textContent =
         `${years} years\n${months} months\n${remainingDays} days\n${h} hours\n${m} minutes\n${s} seconds`;
     }
 
-    setInterval(updateTime, 500);
     updateTime();
+    setInterval(updateTime, 1000);
   </script>
 </body>
 </html>

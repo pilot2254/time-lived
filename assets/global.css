@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono&family=Geist+Sans&display=swap');
 
+:root {
+  --bg: #000;
+  --text: #fff;
+  --accent: #38bdf8;
+}
+
 html, body {
-  font-family: 'Geist Sans', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Geist Sans', sans-serif;
   height: 100%;
 }
 
@@ -17,12 +23,16 @@ code, .mono {
   max-width: 768px;
   margin: 0 auto;
   padding: 2rem;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
+  text-align: center;
 }
 
 a {
-  color: #38bdf8;
+  color: var(--accent);
+  text-decoration: underline;
+  margin-top: 2rem;
+  font-size: 0.875rem;
 }

@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Hourly Quotes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="../assets/global.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="../assets/global.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-  <div class="container text-center">
-    <h1 class="text-4xl font-bold mb-6">Current Hour's Quote</h1>
-    <p class="text-xl mono" id="quote">Loading...</p>
-    <a href="../index.html" class="block mt-12 text-sm underline">← Back</a>
-  </div>
+  <main class="container">
+    <header>
+      <h1 class="text-4xl font-bold mb-4">This Hour's Quote</h1>
+    </header>
+    <section id="quote" class="text-xl mono"></section>
+    <a href="../index.html">Go Back</a>
+  </main>
 
   <script>
-    fetch('quotes.json')
-      .then(res => res.json())
-      .then(data => {
+    async function loadQuote() {
+      try {
+        const res = await fetch('quotes.json');
+        const data = await res.json();
         const hour = new Date().getHours().toString();
-        const quote = data[hour] || "No quote for this hour.";
-        document.getElementById('quote').innerText = quote;
-      })
-      .catch(() => {
-        document.getElementById('quote').innerText = "Failed to load quotes.";
-      });
+        const quote = data[hour] || "No quote available.";
+        document.getElementById('quote').textContent = quote;
+      } catch {
+        document.getElementById('quote').textContent = "Failed to load quotes.";
+      }
+    }
+
+    loadQuote();
   </script>
 </body>
 </html>
