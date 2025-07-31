@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono&family=Geist+Sans&display=swap');
 
 :root {
-  --bg: #000;
-  --text: #fff;
-  --accent: #38bdf8;
+  --bg: #121212;
+  --text: #fefefe;
+  --accent: #3ECF8E;
 }
 
 html, body {
@@ -15,7 +15,7 @@ html, body {
   height: 100%;
 }
 
-code, .mono {
+code, .mono, a {
   font-family: 'Geist Mono', monospace;
 }
 
@@ -30,9 +30,29 @@ code, .mono {
   text-align: center;
 }
 
-a {
+a, .hyperlink {
   color: var(--accent);
   text-decoration: underline;
   margin-top: 2rem;
   font-size: 0.875rem;
+}
+
+.highlight {
+  color: var(--bg);
+  background-color: var(--text);
+  padding-top: 2px;
+  padding-right: 4px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  border-radius: 7px;
+}
+
+::-moz-selection { /* Code for Firefox */
+  color: var(--bg);
+  background: var(--text);
+}
+
+::selection {
+  color: var(--bg);
+  background: var(--text);
 }
