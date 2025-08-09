@@ -3,7 +3,8 @@
 :root {
   --bg: #121212;
   --text: #fefefe;
-  --accent: #3ECF8E;
+  --text-secondary: #808080;
+  --accent: #3ECF8E; 
 }
 
 html, body {
@@ -15,10 +16,6 @@ html, body {
   height: 100%;
 }
 
-code, .mono, a, .hyperlink {
-  font-family: 'Geist Mono', monospace !important;
-}
-
 .container {
   max-width: 768px;
   margin: 0 auto;
@@ -28,6 +25,16 @@ code, .mono, a, .hyperlink {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+
+/* --------------------------- TYPOGRAPHY --------------------------- */
+
+p {
+  color: var(--text-secondary) !important;
+}
+
+code, .mono, a, .hyperlink {
+  font-family: 'Geist Mono', monospace !important;
 }
 
 a, .hyperlink {
