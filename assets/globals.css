@@ -4,7 +4,7 @@
   --bg: #121212;
   --text: #fefefe;
   --text-secondary: #808080;
-  --accent: #3ECF8E; 
+  --accent: #3ecf8e86; 
 }
 
 html, body {
@@ -62,4 +62,30 @@ a, .hyperlink {
 ::selection {
   color: var(--bg);
   background: var(--text);
+}
+
+.time-box {
+  background: transparent;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  color: var(--text);
+}
+
+.time-box span {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.time-box p {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 }
